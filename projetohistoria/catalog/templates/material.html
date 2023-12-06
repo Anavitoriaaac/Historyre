@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Materiais</title>
+</head>
+<body>
+    <h1>Lista de Materiais</h1>
+    {% for material in materiais %}
+        <h2>{{ material.titulo }}</h2>
+        <p>Fonte: <a href="{{ material.fonte }}" target="_blank">{{ material.fonte }}</a></p>
+        <p>Data de Publicação: {{ material.data_publicacao }}</p>
+        
+        <hr>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+materiais - Hashflix
+{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1  class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+
+          Detalhe Etapa
+
+</h1>
+<br>
+<br>
+
+    <p  class="flex justify-center items-center w-11/12 md:w-10/12">Numeração da Etapa: {{ etapa.numeração }}</p>
+    <br>
+    <br>
+
+    <h1  class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+        trajetoria Associados
+    </h1>
+    <p>Nome: {{ trajetoria_da_etapa.nome }}</p>
+    <p>Descrição: {{ trajetoria_da_etapa.descricao }}</p>
+    
+    <h1  class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+        Materiais Associados
+    </h1>
+</ul>
+    
+    <br>
+    <br>
+    <ul   class="flex justify-center items-center w-11/12 md:w-10/12">
+        {% for material in materiais_da_etapa %}
+            <li>
+                <strong>Material:</strong> {{ material.titulo }} <br>
+                <strong>Tipo:</strong> {{ material.tipo }} <br>
+                <strong>Assunto:</strong> {{ material.assunto }} <br>
+                <strong>Fonte de Vídeo:</strong> <a href="{{ material.fontevideo }}" target="_blank">{{ material.fontevideo }}</a> <br>
+                <strong>Fonte de PDF:</strong><a href="{{ material.fontepdf }}" target="_blank">{{ material.fontepdf }}</a> <br>
+                <strong>Fonte de Jogo:</strong> <a href="{{ material.fontejogo }}" target="_blank">{{ material.fontejogo }}</a><br>
+               
+            </li>
+        {% endfor %}
+    </ul>
+   
+</div>
+
+{% endblock %}

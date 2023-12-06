@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+trajetoria - Historyred
+{% endblock %}
+
+{% block content %}
+
+<header
+    class="min-h-screen min-w-screen bg-black bg-opacity-75 bg-blend-overlay showcase border-gray-600 border-b-8 flex justify-center items-center bg-center bg-fixed bg-cover"
+    style="background-image: url('{% static 'images/bac.jpg' %}');">
+    <div class="z-10 h-full py-32 md:py-0 text-gray-100 text-center flex items-center flex-col">
+
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          max-width: 600px;
+          margin: 20px auto;
+        }
+        td {
+          width: 50px;
+          height: 50px;
+          border: 0px solid #ccc;
+          text-align: center;
+          vertical-align: middle;
+          font-size: 18px;
+          background-color;
+        }
+        .ball {
+          width: 50px;
+          height: 50px;
+          background-color: #ff0000;
+          color: #fff;
+          border-radius: 50%;
+          line-height: 50px;
+          margin: 5px;
+        }
+        .ball.active {
+          background-color: #e74c3c;
+        }
+        .ball.editing {
+          background-color: #9b59b6;
+        }
+        .start-ball,
+        .end-ball {
+          width: 80px;
+          height: 80px;
+          line-height: 80px;
+          font-size: 16px;
+          color:#ff0000;
+        }
+        .start-ball {
+          background-color: white;
+      
+        }
+        body{
+          background-image: url('static/images/hystor.jpg');
+        
+        }
+        .ball2 {
+          width: 50px;
+          height: 50px;
+          background-color: pink;
+          color: #00000;
+          border-radius: 50%;
+          line-height: 50px;
+          margin: 5px;
+        }
+      
+         .ball3 {
+          width: 50px;
+          height: 50px;
+          background-color:#ffff00;
+          color: #00000;
+          border-radius: 50%;
+          line-height: 50px;
+          margin: 5px;
+        }
+      </style>
+       
+        
+
+
+
+
+       
+
+        <h1>trajetoria </h1>
+        
+        
+        <body>
+            <h1>trajetoria </h1>
+        
+            
+          <h1>Desbravando a história </h1>
+          <table>
+            <tr>
+              <td><div  class="ball start-ball">Início</div></td>
+              <td><div  class="ball2"> <a href="{% url 'detalhes_etapa' IdEtapa=01 %}">1</a> 
+
+              </div></td>
+              <td><div class="ball3"> <a href="{% url 'detalhes_etapa' IdEtapa=02 %}">2</a> </div></td>
+              <td><div class="ball2"> <a href="{% url 'detalhes_etapa' IdEtapa=03 %}">3</a> </div></td>
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=04 %}">4</a> </div></td>
+            </tr>
+            <tr>
+               <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><div class="ball3"> <a href="{% url 'detalhes_etapa' IdEtapa=05 %}">5</a> </div></td>
+            </tr>
+            <tr>
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=10 %}">10</a> </div></td>
+              <td><div class="ball3"> <a href="{% url 'detalhes_etapa' IdEtapa=09 %}">9</a> </div></td>
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=08 %}">8</a> </div></td>
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=07 %}">7</a> </div></td>
+              <td><div class="ball">6</div></td>
+            </tr>
+            <tr>
+               
+              <td><div class="ball2"> <a href="{% url 'detalhes_etapa' IdEtapa=11 %}">11</a></div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+                <tr>
+               
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=12 %}">12</a> </div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+             <tr>
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=13 %}">13</a> </div></td>
+              <td><div class="ball"> <a href="{% url 'detalhes_etapa' IdEtapa=14 %}">14</a> </div></td>
+            <td><div class="ball"><a href="url">14 </a></div></td>    
+              <td>
+                
+                <div class="ball">
+                     <a href="{% url 'detalhes_material' idMaterial=01 %}">15</a> 
+                     
+                </div>
+              </td>
+              <td> <div class="ball">16</div></td>
+            </tr>
+          </table>
+        
+          <script>
+            let activeBall = null;
+        
+            document.addEventListener('click', (event) => {
+              if (event.target.classList.contains('ball')) {
+                setActiveBall(event.target);
+              } else {
+                setActiveBall(null);
+              }
+            });
+        
+            document.addEventListener('dblclick', (event) => {
+              if (event.target.classList.contains('ball')) {
+                editBallContent(event.target);
+              }
+            });
+        
+            function setActiveBall(ball) {
+              if (activeBall) {
+                activeBall.classList.remove('active');
+              }
+              activeBall = ball;
+              if (activeBall) {
+                activeBall.classList.add('active');
+              }
+            
+          </script>
+          </body>
+{% endblock %}
+
+
