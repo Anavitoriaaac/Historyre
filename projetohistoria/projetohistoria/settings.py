@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog.apps.CatalogConfig',
+    'catalog.apps.CatalogConfig', #cadrastando app
     'crispy_forms',
     'crispy_bootstrap5'
 
@@ -120,19 +120,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT= BASE_DIR /'staticfiles'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 LOGIN_URL = 'catalog:login'
-LOGIN_REDIRECT_URL = 'catalog:ai'
+LOGIN_REDIRECT_URL = 'catalog:conteudo'
 # settings.py
-LOGOUT_REDIRECT_URL = 'catalog:homepage'  
+LOGOUT_REDIRECT_URL = 'catalog: logout '  
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'

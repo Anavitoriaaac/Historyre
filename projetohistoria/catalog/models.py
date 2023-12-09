@@ -1,19 +1,20 @@
 from django.db import models
 
-# Create your models here.
+# parte onde eu criei meus modelos tudo de acordo com o meu diagrama
 LISTA_CATEGORIAS = (
     ("historia01", "HISTORIA01"),
     ("historia02", "HISTORIA02"),
     ("historia03", "HISTORIA03"),
     ("OUTROS", "Outros"),)
+
 class Trajetoria(models.Model):
     nome = models.CharField(max_length=100)
-    imagem = models.ImageField(null=True,blank=True)
+    imagem = models.ImageField( upload_to='trumb_trajetoria',null=True,blank=True)
     descricao = models.TextField(max_length=1000)
     categoria = models.CharField(max_length=15, choices=LISTA_CATEGORIAS)
     anoInicial = models.DateField(null=True,blank=True)
     codigoTrajetoria = models.CharField(max_length=100,primary_key=True)
-    #etapa= models.ForeignKey(Etapa, on_delete = models.CASCADE) #relação representada no diagrama(uma trajetoria é composta por varias etapas)
+
 class Etapa(models.Model):
     numeração = models.IntegerField ()
     status= models.CharField(max_length=100)

@@ -1,0 +1,95 @@
+
+
+/* dá estilo às tabelas:
+   - border-collapse: collapse; remove espaços entre as bordas das células.
+   - width: 100%; faz com que a tabela ocupe 100% da largura disponível.
+   - max-width: 600px; limita a largura máxima da tabela a 600 pixels.
+   - margin: 20px auto; adiciona uma margem de 20 pixels nas laterais e centraliza a tabela na página. */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* dá  células td da tabela:
+   - define a largura e altura como 50 pixels.
+   - sem borda (border: 0px solid #ccc;).
+   - texto centralizado.
+   - taamanho de fonte de 18 pixels.
+   - cor de fundo vermelha (#ff0000). */
+td {
+  width: 50px;
+  height: 50px;
+  border: 0px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  background-color: #ff0000;
+}
+
+
+/* da estiloo aos elementos com a classe .ball:
+   - Define a largura e altura como 50 pixels.
+   - Cor de fundo vermelha (#ff0000).
+   - Texto branco.
+   - Borda arredondada.
+   - Altura de linha igual à altura do elemento.
+   - Margem de 5 pixels. */
+.ball {
+  width: 50px;
+  height: 50px;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 50px;
+  margin: 5px;
+}
+
+/* da estilo aos elementos com as classes .start-ball e .end-ball:
+   - Cor de fundo branca.
+   - Largura, altura, altura de linha, tamanho de fonte e cor específicos. */
+.start-ball, .end-ball {
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 16px;
+  color: #ff0000;
+}
+
+
+
+/*estio elementos com a classe .ball2:
+   - Define a largura e altura como 50 pixels.
+   - Cor de fundo rosa.
+   - Texto preto.
+   - Borda arredondada.
+   - Altura de linha igual à altura do elemento.
+   - Margem de 5 pixels. */
+.ball2 {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+  color: #00000;
+  border-radius: 50%;
+  line-height: 50px;
+  margin: 5px;
+}
+
+/* da estilo elementos com a classe .ball3:
+   - Define a largura e altura como 50 pixels.
+   - Cor de fundo amarela (#ffff00).
+   - Texto preto.
+   - Borda arredondada.
+   - Altura de linha igual à altura do elemento.
+   - Margem de 5 pixels. */
+.ball3 {
+  width: 50px;
+  height: 50px;
+  background-color: #ffff00;
+  color: #00000;
+  border-radius: 50%;
+  line-height: 50px;
+  margin: 5px;
+}

@@ -20,18 +20,24 @@ from django.urls import include
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path ('',include('catalog.urls')),
-    path('catalog/', include('catalog.urls')),
+    path('admin/', admin.site.urls),  # define a URL para o painel de administração do Django.
+    path ('',include('catalog.urls')), # inclui as URLs do aplicativo catalog.
+    path('catalog/', include('catalog.urls')), # inclui as URLs do aplicativo catalog sob o prefixo 'catalog/'.
 ]
 
-#urlpatterns += [
- #   path('catalog/', include('catalog.urls')),
-#]
-
+# Importa as configurações do Django do arquivo settings.py
 from django.conf import settings
+# Importa a função static que é usada para adicionar as configurações de rota para servir arquivos estáticos e de mídia.
 from django.conf.urls.static import static
 
+# Verifica se o aplicativo está em modo de depuração.
+if settings.DEBUG:
+    # adiciona as configurações para servir arquivos estáticos.
+    # settings.STATIC_URL é o URL prefixo para os arquivos estáticos.
+    # settings.STATIC_ROOT é o caminho absoluto para o diretório onde esses arquivos estão armazenados.
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+    # adiciona as configurações para servir arquivos de mídia.
+    # settings.MEDIA_URL é o URL prefixo para os arquivos de mídia.
+    # settings.MEDIA_ROOT é o caminho absoluto para o diretório onde esses arquivos estão armazenados.
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

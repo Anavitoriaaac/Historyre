@@ -1,30 +1,33 @@
-{% load static %}
+{% load static %}  <!--Carrega arquivos estáticos (CSS, JavaScript entre outros) para o meu template.-->
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> <!-- Contém  o título e links para stilização e meta-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {% block titulo %}
+        {% block titulo %} <!--Define o título da página, que pode ser substituído nos templates filhos usando blocos (oq pode ser observado em outros templates)-->
         {% endblock %}
     </title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.1.1/dist/flowbite.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"><!--Adiciona a folha de estilo CSS do Bootstrap (são tipo um coisas prointas para me ajudar na estilizção).-->
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.1.1/dist/flowbite.min.css" />
+        <!--Adicionei a folha de estilo do Flowbite css.-->
+        <script src="https://cdn.tailwindcss.com"></script>
+       
     {% block head %}
     {% endblock %}
 
 </head>
 
 <body class="bg-black text-gray-100 font-primary">
-    {% include 'navbar.html' %}
+    {% include 'navbar.html' %} <!--Inclui o conteúdo do arquivo 'navbar.html' no corpo do documento.-->
     {% block content %}
     {% endblock %}
+     <!--Adiciona um script JavaScript para alterar dinamicamente a classe da barra de navegação com base no scrollY.-->
     <script>
         const nav = document.querySelector('nav')
 
@@ -36,9 +39,12 @@
             }
         })
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> <!--Adiciona o script Ionicons como um módulo ES para navegadores modernos.-->
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script><!--Adiciona o script Ionicons para navegadores mais antigos.
+    obs: Ionicons é uma biblioteca de ícones que fornece uma coleção de símbolos gráficos comumente usados em aplicativos e interfaces de usuário.-->
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    <!-- la em cima adicionei css e agora a pagina do java , o Flowbite, é tipo uma biblioteca de codigo aberto onte tem componentes para interface mais agradavel e isso é criado a apartir das classes do tailwind css ele tambem inclui javascript com fale permite componentes interativos,menus etc...
+     -->
 </body>
 
 </html>

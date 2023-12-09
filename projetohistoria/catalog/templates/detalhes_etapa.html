@@ -1,55 +1,78 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}  <!-- o extends significa que o template atual (Detalhes da Etapa - Historyred) estende outro template chamado base.html,para reutilizar partes comuns da estrutura HTML.-->
+{% load static %}
 
-{% block titulo %}
-materiais - Hashflix
-{% endblock %}
+{% block titulo %} <!-- eu defini o título da página como Detalhes da Etapa - Historyred.-->
+    Detalhes da Etapa - Historyred
+{% endblock %} <!--  o fim de um bloco no template-->
 
-{% block content %}
+{% block content %} <!--Defini um novo bloco chamado content para o conteúdo principal da página,ele pode ser alterado igual o de titulo-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1  class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
-
-          Detalhe Etapa
-
-</h1>
-<br>
-<br>
-
-    <p  class="flex justify-center items-center w-11/12 md:w-10/12">Numeração da Etapa: {{ etapa.numeração }}</p>
+<header
+class="min-h-screen min-w-screen bg-black bg-opacity-75 bg-blend-overlay showcase border-gray-600 border-b-8  bg-center bg-fixed bg-cover"
+style="background-image: url('{% static 'images/hystor.jpg' %}');">
+    <br><!--para melhorar a estetica quebras de linha-->
     <br>
     <br>
-
-    <h1  class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
-        trajetoria Associados
+    <br>
+    <h1 class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+        Trajetória Associada
+        <br>
+        <br>
     </h1>
-    <p>Nome: {{ trajetoria_da_etapa.nome }}</p>
-    <p>Descrição: {{ trajetoria_da_etapa.descricao }}</p>
+     <ul class="flex justify-center items-center w-11/12 md:w-10/12">
+        <li class="flex items-center">
+            <div class="mr-4"> <!-- Adicione margem à direita para espaçamento -->
+               
+                <img src="{{ trajetoria_da_etapa.imagem.url }}" alt="Imagem da Trajetória" class="img-custom-size">
+            </div>
+            <div>
+                <strong>Nome:</strong> {{ trajetoria_da_etapa.nome }} <br>
+                <strong>Descrição:</strong> {{ trajetoria_da_etapa.descricao }} <br>
+            </div>
+        </li>
+    </ul>
     
-    <h1  class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+        Detalhe Etapa <!--h1 é tag de cabeçalho , parte de stilo: o font-semibold faz a indicação que o texto dentro da tag deve esta tipo fonte semi-negrito o texto fica  mais destacado.text-4xl md:text-5xl: Define o tamanho do texto dependo do tamanho da tela e tem a parte de centralizar.-->
+    </h1>
+    <br>
+    <br>
+    <p class="flex justify-center items-center w-11/12 md:w-10/12">
+        Numeração da Etapa: {{ etapa.numeração }}
+        
+    </p>
+    <!--p é tag de paragrafo-->
+    <!--justify-center: Centraliza os itens horizontalmente-->
+    
+    </p>
+    <br>
+    <br>
+
+   
+
+    <h1 class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
         Materiais Associados
     </h1>
-</ul>
-    
-    <br>
-    <br>
-    <ul   class="flex justify-center items-center w-11/12 md:w-10/12">
-        {% for material in materiais_da_etapa %}
+
+    <ul class="flex justify-center items-center w-11/12 md:w-10/12">
+        {% for material in materiais_da_etapa %} <!--Este é um loop  que itera sobre cada material na lista materiais_da_etapa -->
             <li>
                 <strong>Material:</strong> {{ material.titulo }} <br>
                 <strong>Tipo:</strong> {{ material.tipo }} <br>
                 <strong>Assunto:</strong> {{ material.assunto }} <br>
                 <strong>Fonte de Vídeo:</strong> <a href="{{ material.fontevideo }}" target="_blank">{{ material.fontevideo }}</a> <br>
-                <strong>Fonte de PDF:</strong><a href="{{ material.fontepdf }}" target="_blank">{{ material.fontepdf }}</a> <br>
-                <strong>Fonte de Jogo:</strong> <a href="{{ material.fontejogo }}" target="_blank">{{ material.fontejogo }}</a><br>
-               
+                <strong>Fonte de PDF:</strong> <a href="{{ material.fontepdf }}" target="_blank">{{ material.fontepdf }}</a> <br>
+                <strong>Fonte de Jogo:</strong> <a href="{{ material.fontejogo }}" target="_blank">{{ material.fontejogo }}</a> <br>
             </li>
         {% endfor %}
     </ul>
-   
+
 </div>
 
 {% endblock %}
