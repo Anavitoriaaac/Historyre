@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser, Permission, Group
 
 # parte onde eu criei meus modelos tudo de acordo com o meu diagrama
 LISTA_CATEGORIAS = (
@@ -35,11 +36,18 @@ class Material(models.Model):
     dataPublicação =models.DateField(null=True,blank=True)
 
    
-class Usuario(models.Model):
+class Usuario(AbstractUser):
   nome= models.CharField(max_length=200)
   email = models.EmailField()
   telefone = models.CharField(max_length=200)
   cpf= models.CharField(primary_key=True,max_length=100)
+  password = models.CharField(max_length=128, default='0')
+  username = models.CharField(max_length=128, default='0')
+    
+
+ 
+  groups = models.ManyToManyField(Group, related_name='usuarios')
+  user_permissions = models.ManyToManyField(Permission, related_name='usuarios')
 
 class Historico (models.Model):
   user= models.ForeignKey(Usuario,on_delete=models.CASCADE)

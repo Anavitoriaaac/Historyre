@@ -20,11 +20,23 @@
         </div>
         <div>
            <li class="flex justify-center py-1 md:py-0">
-                <a href="{% url 'homepage' %}">
+                <a href="{% url 'cadastrar_material' %}">
                     <button class="block py-2 pr-4 pl-3 text-white rounded-md md:py-1 md:px-2 bg-red-600"
-                        aria-current="page">  <!-- Um botão de retornar homepage , quando clicar direciona para a URL homepage-->
-                        HomePage
+                        aria-current="page">  
+                        Sugestão
                     </button>
                 </a></div>
+                <div class="hidden border-red-600 border-4 md:border-none w-full md:block md:w-auto" id="mobile-menu">
+           
+                    <li class="flex justify-center py-1 md:py-0">
+                        <a href="{% url 'homepage' %}"> <!-- Um botão de sair , quando clicar direciona para a URL lougout_view-->
+                            <button class="block py-2 pr-4 pl-3 text-white rounded-md md:py-1 md:px-2 bg-red-600"
+                                aria-current="page">  
+                                Homepage
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         
 </nav>

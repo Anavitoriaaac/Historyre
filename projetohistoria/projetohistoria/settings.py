@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig', #cadrastando app
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    
 
 ]
 
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -128,7 +130,7 @@ STATIC_ROOT= BASE_DIR /'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# AUTH_USER_MODEL = 'catalog.Usuario'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -139,5 +141,6 @@ LOGIN_REDIRECT_URL = 'catalog:conteudo'
 LOGOUT_REDIRECT_URL = 'catalog: logout '  
 
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 CRISPY_ALLOWED_TEMPLATE_PACK ='bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'  

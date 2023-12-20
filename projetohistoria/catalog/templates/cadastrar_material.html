@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %} <!--herda  de base.html-->
+{% load crispy_forms_tags %}  
+{% load static %} <!--para carregar arquivos staticos-->
+{% block content %}
+
+<header class="custom-header ">
+    <h1 class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+        Cadastrar Materiais
+    </h1>
+
+     
+</header>
+
+
+    <br>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary mt-2">Cadastrar</button>
+  </form>
+{% endblock %}

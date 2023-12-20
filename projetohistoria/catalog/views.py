@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login,logout
 from django.shortcuts import render, get_object_or_404
+from .forms import MaterialForm
 
 
 def Homepage(request): # representa a view associada à página inicial do site
@@ -18,10 +19,9 @@ def Homepage(request): # representa a view associada à página inicial do site
 
 def criarconta(request):
     return render (request,'criarconta.html')
-def ana(request):
-    return render (request,'traj.html')
-def logout_view(request):
-    logout(request)
+
+
+def logout_view (request):
     return render(request, 'logout.html')  
 
 
@@ -48,6 +48,20 @@ def conteudo(request):
 
 
 
+
+ 
+
+
+def cadastrar_material(request):
+    if request.method == 'POST':
+        form = MaterialForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pagina_inicial')  # redirecione para a página inicial ou outra página desejada
+    else:
+        form = MaterialForm()
+
+    return render(request, 'cadastrar_material.html', {'form': form})
 
 def login_view(request):
     # ele vai verifica se a requisição é do tipo postt, indicando que o formulário foi enviado.
@@ -81,4 +95,3 @@ def login_view(request):
 
     # renderiza a página login.html com o formulário seja ele vazio ou preenchido.
     return render(request, 'login.html', {'form': form})
-

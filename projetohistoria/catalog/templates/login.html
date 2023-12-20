@@ -1,6 +1,5 @@
 
 {% extends 'base.html' %}
-
 <!-- Carrega as tags estáticas e as tags do crispy forms. -->
 {% load static %}
 {% load crispy_forms_tags %}
@@ -15,14 +14,15 @@
     <header class="min-h-screen min-w-screen bg-black bg-opacity-75 bg-blend-overlay showcase border-gray-600 border-b-8 flex justify-center items-center bg-center bg-fixed bg-cover"
             style="background-image: url('{% static 'images/hystor.jpg' %}');">
         
-        <!-- c abeçalho da página. -->
+         <!-- cabeçalho da página. -->
       
         <body>
             <!-- prte do forms de login -->
             <form method="post" action="{% url 'login_view' %}">
                 {% csrf_token %}
+                {{ form|crispy }}
                 <br>
-                {{ form.as_p }} <!-- renderiza o formulário com o layout definido pelo crispy forms
+                <!-- renderiza o formulário com o layout definido pelo crispy forms
                 ele server para estilizçõ de forms então eu instalri -->
                 <br>
                 <button type="submit">Entrar</button>
