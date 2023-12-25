@@ -1,14 +1,14 @@
 from django.urls import path
 from catalog import views
 #from django.contrib.auth import views as auth_view
-from .views import  Homepage,login_view,logout_view,detalhes_etapa,conteudo ,cadastrar_material
+from .views import  Homepage,login_view,logout_view,detalhes_etapa,conteudo ,cadastrar_material,sugestao
 
 
 urlpatterns = [ 
     
       path('',views.Homepage, name = "homepage"), # quando a URL for vazia, chama a função homepage da viewsHomepage e atribui o nome 'homepage' a essa URL.
       path('criarconta',views.criarconta, name = "criarconta"), # Quando a URL for 'criarconta', chama a função criarconta da views.criarconta e atribui o nome 'criarconta' a essa URL e  asimm por diante.
-      
+      path('sugestao',views.sugestao, name = "sugestao"),
       path('cadastrar_material/', views.cadastrar_material, name='cadastrar_material'),
       path('conteudo',views.conteudo, name = "conteudo"),
       path('login/', views.login_view, name='login_view'),

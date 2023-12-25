@@ -14,4 +14,4 @@ class MeuFormularioDeLogin(AuthenticationForm):
 class MaterialForm(forms.ModelForm):
     class Meta:
         model = Material
-        fields = '__all__'  # ou especifique os campos que deseja no formulário
+        fields = '__all__'  # todos os campos 

@@ -38,7 +38,9 @@ def detalhes_etapa(request, IdEtapa): # define o nome da função que mostra os 
 def conteudo(request):
     
     return render (request,'conteudo.html')
-
+def sugestao(request):
+    
+    return render (request,'sugest.html')
 
 
 
@@ -52,16 +54,19 @@ def conteudo(request):
  
 
 
-def cadastrar_material(request):
-    if request.method == 'POST':
-        form = MaterialForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('pagina_inicial')  # redirecione para a página inicial ou outra página desejada
+def cadastrar_material(request): 
+    if request.method == 'POST': #comeca  verificando se a solicitaação é post isso significa em geral que o forms foi enviado pelo usuario
+        form = MaterialForm(request.POST) # se a solicitação for do tipo post é criada uma instancia com dados forcecidos na solicitação
+        if form.is_valid(): #verifica se o forms é valido 
+            form.save() #se for valido as informações são salvas no banco de dados
+            return redirect('sugestao')  # redirecione para a página inicial ou outra página desejada
     else:
-        form = MaterialForm()
+        form = MaterialForm() # instacia vazia
 
     return render(request, 'cadastrar_material.html', {'form': form})
+
+
+
 
 def login_view(request):
     # ele vai verifica se a requisição é do tipo postt, indicando que o formulário foi enviado.
